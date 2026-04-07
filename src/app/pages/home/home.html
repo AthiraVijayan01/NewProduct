@@ -1,0 +1,34 @@
+
+<div class="header">
+  <div class="logo">Shopiee</div>
+
+  <input type="text" placeholder="Search for Products..." class="search">
+
+  <div class="nav-links">
+    <button (click)="logout()">Log out</button>
+  </div>
+</div>
+
+<!-- 
+<div class="menu">
+  <div (click)="goToCategory('Electronics')">Electronics</div>
+  <div (click)="goToCategory('Clothing')">Clothing</div>
+  <div (click)="goToCategory('Furniture')">Furniture</div>
+  <div (click)="goToCategory('Groceries')">Groceries</div>
+  <div (click)="goToCategory('Books')">Books</div>
+</div> -->
+
+<div class="promo-container">
+  <div *ngFor="let p of productslist" class="promo">>
+    <h3>{{ p.name }}</h3>
+    <p class="category">{{ p.category }}</p>
+    <p class="price">₹{{ p.price }}</p>
+  </div>
+</div>
+
+
+<div class="footer-menu">
+  <button class="btn1" (click)="goToCart()">Cart</button>
+  <button class="btn1" (click)="goToView()">View Products</button>
+  <button class="btn1" (click)="goToProfile()">Profile</button>
+</div>

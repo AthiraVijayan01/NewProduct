@@ -1,0 +1,117 @@
+<div class="header">
+  <button class="btn" (click)="toggleSidebar()">☰</button>
+  <h3>Shopiee</h3>
+  <button (click)="logout()">Log out</button>
+</div>
+
+<div *ngIf="isSidebarOpen">
+  <div class="overlay" (click)="closeSidebar()"></div>
+
+  <div class="sidebar" (click)="$event.stopPropagation()">
+    <h3>Shopiee</h3>
+    <ul>
+      <li>Settings</li>
+      <li>Privacy</li>
+      <li>Profile</li>
+      <li (click)="goToCart()">Orders</li>
+      <li (click)="openTermsModal()">Terms and Policies</li>
+      <li (click)="openLanguageModal()">Select Language</li>
+      <li>About</li>
+      <li (click)="logout()">Logout</li>
+    </ul>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="profile-container">
+    <div class="profile-card">
+      <h2>User Profile</h2>
+
+      <div class="image-section">
+        <img *ngIf="user.image; else noImg" [src]="user.image" class="profile-img">
+        <ng-template #noImg>
+          <div class="placeholder">No Image</div>
+        </ng-template>
+        <input type="file" (change)="onFileSelected($event)">
+      </div>
+
+      <div class="form-section">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="user.name">
+
+          <label>Phone</label>
+          <input type="text" [(ngModel)]="user.phone">
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+          <textarea [(ngModel)]="user.address"></textarea>
+
+          <label>District</label>
+          <select [(ngModel)]="user.district" (change)="onDistrictChange()">
+            <option value="">Select</option>
+            <option *ngFor="let d of districts">{{ d }}</option>
+          </select>
+
+          <label>Place</label>
+          <select [(ngModel)]="user.place">
+            <option *ngFor="let p of selectedPlaces">{{ p }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group">
+  <label>Gender</label>
+
+  <div class="radio-group">
+    <label>
+      <input type="radio" value="Male" [(ngModel)]="user.gender" name="g">Male
+    </label>
+    <label>
+      <input type="radio" value="Female" [(ngModel)]="user.gender" name="g">Female
+    </label>
+    <label>
+      <input type="radio" value="Other" [(ngModel)]="user.gender" name="g">Other
+    </label>
+  </div>
+</div>
+        </div>
+
+        <button (click)="updateProfile()">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-menu">
+      <button (click)="goToCart()">Cart</button>
+      <button (click)="goToView()">View</button>
+      <button (click)="goToHome()">Home</button>
+    </div>
+  </footer>
+</div>
+
+<div class="modal" *ngIf="isLanguageModalOpen">
+  <div class="modal-content">
+    <h3>Select Language</h3>
+
+    <div *ngFor="let lang of languages">
+      <label>
+        <input type="radio" name="language" [value]="lang" [(ngModel)]="selectedLanguage">
+        {{ lang }}
+      </label>
+    </div>
+
+    <button (click)="changeLanguage(selectedLanguage)">Apply</button>
+    <button (click)="closeLanguageModal()">Close</button>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isTermsModalOpen">
+  <div class="modal-content">
+    <h3>Terms and Policies</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam est placeat, quo rerum soluta veritatis culpa neque illum facere! Consectetur rerum iusto assumenda odit excepturi perferendis velit blanditiis possimus maiores.</p>
+    <button class="b1" (click)="closeTermsModal()">Close</button>
+  </div>
+</div>

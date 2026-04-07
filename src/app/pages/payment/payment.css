@@ -1,0 +1,62 @@
+.bill-container {
+  width: 70%;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.summary {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.grand {
+  color: green;
+  font-size: 20px;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:first-child {
+  background-color: green;
+  color: white;
+}
+
+button:last-child {
+  background-color: gray;
+  color: white;
+}

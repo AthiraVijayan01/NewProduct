@@ -1,0 +1,31 @@
+[
+  { "id": 1, "name": "Laptop", "price": 70000, "category": "Electronics", "brand": "HP", "image": "images/Laptop.jpg" },
+  { "id": 2, "name": "Smartphone", "price": 40000, "category": "Electronics", "brand": "Samsung", "image": "images/Phone.jpg" },
+  { "id": 3, "name": "Headphones", "price": 3000, "category": "Electronics", "brand": "Sony", "image": "images/headphone.jpg" },
+  { "id": 4, "name": "TV", "price": 80000, "category": "Electronics", "brand": "LG", "image": "images/TV.jpg" },
+  { "id": 5, "name": "Camera", "price": 55000, "category": "Electronics", "brand": "Canon", "image": "images/Camera.jpg" },
+
+  { "id": 6, "name": "Shirt", "price": 2000, "category": "Clothing", "brand": "Zara", "image": "images/Shirt.jpg" },
+  { "id": 7, "name": "Jeans", "price": 3500, "category": "Clothing", "brand": "Levis", "image": "images/jeans.jpg" },
+  { "id": 8, "name": "Jacket", "price": 6000, "category": "Clothing", "brand": "Nike", "image": "images/Jacket.jpg" },
+  { "id": 9, "name": "T-Shirt", "price": 1500, "category": "Clothing", "brand": "Adidas", "image": "images/T-shirt.jpg" },
+  { "id": 10, "name": "Sweater", "price": 2500, "category": "Clothing", "brand": "Puma", "image": "images/sweater.jpg" },
+
+  { "id": 11, "name": "Rice Bag", "price": 1200, "category": "Groceries", "brand": "India Gate", "image": "images/rice.jpg" },
+  { "id": 12, "name": "Cooking Oil", "price": 1800, "category": "Groceries", "brand": "Fortune", "image": "images/oil.jpg" },
+  { "id": 13, "name": "Snacks Pack", "price": 500, "category": "Groceries", "brand": "Lays", "image": "images/snacks.jpg" },
+  { "id": 14, "name": "Milk Pack", "price": 300, "category": "Groceries", "brand": "Amul", "image": "images/milk.jpg" },
+  { "id": 15, "name": "Fruits Basket", "price": 800, "category": "Groceries", "brand": "FreshFarm", "image": "images/fruits.jpg" },
+
+  { "id": 16, "name": "Sofa", "price": 45000, "category": "Furniture", "brand": "Ikea", "image": "images/sofa.jpg" },
+  { "id": 17, "name": "Dining Table", "price": 30000, "category": "Furniture", "brand": "HomeCentre", "image": "images/Dining.jpg" },
+  { "id": 18, "name": "Chair", "price": 5000, "category": "Furniture", "brand": "Nilkamal", "image": "images/Chair.jpg" },
+  { "id": 19, "name": "Bed", "price": 60000, "category": "Furniture", "brand": "UrbanLadder", "image": "images/bed.jpg" },
+  { "id": 20, "name": "Wardrobe", "price": 55000, "category": "Furniture", "brand": "Godrej", "image": "images/wardrobe.jpg" },
+
+  { "id": 21, "name": "Book", "price": 700, "category": "Books", "brand": "Penguin", "image": "images/Book.jpg" },
+  { "id": 22, "name": "Notebook", "price": 200, "category": "Books", "brand": "Classmate", "image": "images/notebook.jpg" },
+  { "id": 23, "name": "Magazine", "price": 300, "category": "Books", "brand": "Outlook", "image": "images/magazine.jpg" },
+  { "id": 24, "name": "Comics", "price": 400, "category": "Books", "brand": "Marvel", "image": "images/comics.jpg" },
+  { "id": 25, "name": "Dictionary", "price": 1000, "category": "Books", "brand": "Oxford", "image": "images/dictionary.jpg" }
+]

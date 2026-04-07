@@ -1,0 +1,61 @@
+<div class="header">
+  <div class="logo">Shopiee</div>
+
+  <input type="text"
+         placeholder="Search for Products..."
+         class="search"
+         [(ngModel)]="searchText"
+         (input)="filterProducts()">
+
+  <div class="nav-links">
+    <button (click)="logout()">Log out</button>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <select [(ngModel)]="selectedBrand" (change)="filterProducts()">
+    <option value="">All Brands</option>
+    <option *ngFor="let b of brands" [value]="b">{{ b }}</option>
+  </select>
+
+  <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
+    <option value="">All Categories</option>
+    <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+  </select>
+
+  <select [(ngModel)]="sortOption" (change)="filterProducts()">
+    <option value="">Sort By</option>
+    <option value="low">Price: Low → High</option>
+    <option value="high">Price: High → Low</option>
+  </select>
+  <button class="btn1" (click)="resetFilters()">Reset</button>
+</div>
+
+<div class="promo-container">
+  <div *ngFor="let p of filteredProducts" class="promo">
+    <img [src]="p.image" class="product-img">
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.category }}</p>
+    <p>₹{{ p.price }}</p>
+    <button class="btn1" (click)="addToCart(p)">Add to Cart</button>
+  </div>
+</div>
+
+<div *ngIf="filteredProducts.length === 0" style="text-align:center; margin-top:20px;">
+  No products found
+</div>
+
+<div class="footer-menu">
+  <div class="cart-btn">
+    <div class="cart-btn" (click)="goToCart()">
+  <button class="btn1">
+    Cart
+    <span class="badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+  </button>
+</div>
+  </div>
+
+  <div>
+    <button class="btn1" (click)="goTohome()">Home</button>
+  </div>
+</div>

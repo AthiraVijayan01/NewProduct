@@ -1,0 +1,99 @@
+
+
+.form-container {
+  display: flex;
+  justify-content: center;   
+  align-items: center;       
+  height: 100vh;             
+  background: #f2f2f2;
+  padding: 20px;
+}
+
+form {
+  width: 350px;
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+h1 {
+  color: #2ea11f;
+  margin-bottom: 25px;
+}
+
+label {
+  font-size: 13px;
+  display: block;
+  text-align: left;
+  margin-top: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #2874f0;
+  outline: none;
+  box-shadow: 0 0 5px rgba(40,116,240,0.3);
+}
+
+.forgot-link {
+  text-align: right;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.forgot-link a {
+  font-size: 13px;
+  color: #2874f0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.forgot-link a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #2874f0, #4fb4e6);
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.reg {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.reg a {
+  color: #2874f0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.reg a:hover {
+  text-decoration: underline;
+}
