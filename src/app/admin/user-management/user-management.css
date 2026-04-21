@@ -1,0 +1,162 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+/* Add User button */
+button:first-of-type {
+  background: #007bff;
+  color: white;
+}
+
+button:first-of-type:hover {
+  background: #0056b3;
+}
+
+/* Table styling */
+table {
+  width: 95%;
+  margin: auto;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #343a40;
+  color: white;
+  padding: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #f1f1f1;
+}
+
+/* Edit/Delete buttons */
+td button {
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+td button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+td button:first-child:hover {
+  background: #1e7e34;
+}
+
+td button:last-child {
+  background: #dc3545;
+  color: white;
+}
+
+td button:last-child:hover {
+  background: #a71d2a;
+}
+
+/* Modal background */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  width: 380px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+input, select {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+
+.btn-group {
+  margin-top: 15px;
+}
+
+.btn-group button {
+  width: 45%;
+  border-radius: 6px;
+}
+
+.btn-group button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.btn-group button:first-child:hover {
+  background: #1e7e34;
+}
+
+.btn-group button:last-child {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-group button:last-child:hover {
+  background: #a71d2a;
+}
+
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

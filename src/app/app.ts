@@ -1,15 +1,19 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { View } from './pages/view/view';
-import { Cart } from './pages/cart/cart';
-import { Home } from './pages/home/home';
-import { Login } from './pages/login/login';
+import { View } from './user/view/view';
+import { Cart } from './user/cart/cart';
+import { Home } from './user/home/home';
+import { Login } from './auth/login/login';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';  
-import { Registration } from './pages/registration/registration';
-import { Profile } from './pages/profile/profile';
-import { ForgotPassword } from './pages/forgotpassword/forgotpassword';
+import { Registration } from './auth/registration/registration';
+import { Profile } from './user/profile/profile';
+import { ForgotPassword } from './user/forgotpassword/forgotpassword';
+
+import { Dashboard } from './admin/dashboard/dashboard';
+import { ProductManagement } from './admin/product-management/product-management';
+import { UserManagement } from './admin/user-management/user-management';
 
 
 @Component({

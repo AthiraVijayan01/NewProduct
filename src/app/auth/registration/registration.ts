@@ -12,42 +12,52 @@ import { Router, RouterModule } from '@angular/router';
 export class Registration implements OnInit {
 
   registerForm!: FormGroup;
-  selectedFile!: File;
 
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(6)]],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4)]],
       confirmPassword: ['', Validators.required]
     }, { validators: this.passwordMatch });
   }
+
   passwordMatch(form: FormGroup) {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { mismatch: true };
   }
+
   onSubmit() {
     if (this.registerForm.valid) {
-      const userData = this.registerForm.value;
 
-      localStorage.setItem('user', JSON.stringify(userData));
+      const formData = this.registerForm.value;
+
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+      const exists = users.find((u: any) => u.username === formData.username);
+
+      if (exists) {
+        alert('User already exists!');
+        return;
+      }
+
+      users.push({
+        name: formData.name,
+        username: formData.username,
+        password: formData.password,
+        role: 'user'
+      });
+
+      localStorage.setItem('users', JSON.stringify(users));
 
       alert('Registration successful!');
       this.router.navigate(['/login']);
+
     } else {
       alert('Please fill all fields correctly.');
     }
-  }
-  onFileSelected(event: any) {
-    if (event.target.files && event.target.files.length > 0) {
-      this.selectedFile = event.target.files[0];
-      console.log("Selected file:", this.selectedFile);
-    }
-  }
-  get f() {
-    return this.registerForm.controls;
   }
 }

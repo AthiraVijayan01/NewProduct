@@ -104,25 +104,20 @@ export class Cart implements OnInit {
 
     return Math.min(discount, 30);
   }
-
   getDiscountAmount(item: CartItem): number {
     return Number(((item.price * this.getDiscount(item)) / 100).toFixed(2));
   }
-
   getPriceAfterDiscount(item: CartItem): number {
     return Number((item.price - this.getDiscountAmount(item)).toFixed(2));
   }
-
   getItemTotal(item: CartItem): number {
     return Number((this.getPriceAfterDiscount(item) * item.quantity).toFixed(2));
   }
-
   getTotalDiscount(): number {
     return this.cart.reduce((sum, item) => {
       return sum + this.getDiscountAmount(item) * item.quantity;
     }, 0);
   }
-
   getSubtotal(): number {
     return this.cart.reduce((sum, item) => sum + this.getItemTotal(item), 0);
   }

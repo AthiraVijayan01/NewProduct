@@ -1,0 +1,49 @@
+<h2>User Management</h2>
+
+<button (click)="openAddModal()">Add User</button>
+
+<hr>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let u of users">
+    <td>{{ u.username }}</td>
+    <td>{{ u.name }}</td>
+    <td>{{ u.role }}</td>
+    <td>
+      <button (click)="editUser(u)">Edit</button>
+      <button (click)="deleteUser(u.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+
+    <h3>{{ isEdit ? 'Edit User' : 'Add User' }}</h3>
+
+    <input [(ngModel)]="user.username" placeholder="Username">
+    <input [(ngModel)]="user.name" placeholder="Name">
+
+    <select [(ngModel)]="user.role">
+      <option value="">Select Role</option>
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <div class="btn-group">
+      <button (click)="saveUser()">
+        {{ isEdit ? 'Update' : 'Save' }}
+      </button>
+
+      <button (click)="closeModal()">Cancel</button>
+    </div>
+
+  </div>
+</div>

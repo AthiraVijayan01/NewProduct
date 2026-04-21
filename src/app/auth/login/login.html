@@ -1,0 +1,23 @@
+<div class="login-container">
+  <h1>WELCOME TO LOGIN PAGE</h1>
+
+  <form [formGroup]="loginForm" (ngSubmit)="CheckLogin()" class="form-box">
+
+    <input type="text" placeholder="Username" formControlName="username">
+    <br><br>
+    <input type="password" placeholder="Password" formControlName="password">
+    <br><br>
+    <button type="submit">Login</button>
+
+    <div class="reg">
+      <p>Don't have an account? 
+        <a (click)="goToRegister()">Register</a>
+      </p>
+    </div>
+
+    <div class="forgot-link">
+      <a (click)="goToForgotPassword()">Forgot Password?</a>
+    </div>
+
+  </form>
+</div>

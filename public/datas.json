@@ -11,7 +11,7 @@
   { "id": 9, "name": "T-Shirt", "price": 1500, "category": "Clothing", "brand": "Adidas", "image": "images/T-shirt.jpg" },
   { "id": 10, "name": "Sweater", "price": 2500, "category": "Clothing", "brand": "Puma", "image": "images/sweater.jpg" },
 
-  { "id": 11, "name": "Rice Bag", "price": 1200, "category": "Groceries", "brand": "India Gate", "image": "images/rice.jpg" },
+  { "id": 11, "name": "Rice Bag", "price": 1200, "category": "Groceries", "brand": "India Gate", "image": "images/Rice.jpg" },
   { "id": 12, "name": "Cooking Oil", "price": 1800, "category": "Groceries", "brand": "Fortune", "image": "images/oil.jpg" },
   { "id": 13, "name": "Snacks Pack", "price": 500, "category": "Groceries", "brand": "Lays", "image": "images/snacks.jpg" },
   { "id": 14, "name": "Milk Pack", "price": 300, "category": "Groceries", "brand": "Amul", "image": "images/milk.jpg" },
@@ -24,8 +24,8 @@
   { "id": 20, "name": "Wardrobe", "price": 55000, "category": "Furniture", "brand": "Godrej", "image": "images/wardrobe.jpg" },
 
   { "id": 21, "name": "Book", "price": 700, "category": "Books", "brand": "Penguin", "image": "images/Book.jpg" },
-  { "id": 22, "name": "Notebook", "price": 200, "category": "Books", "brand": "Classmate", "image": "images/notebook.jpg" },
-  { "id": 23, "name": "Magazine", "price": 300, "category": "Books", "brand": "Outlook", "image": "images/magazine.jpg" },
+  { "id": 22, "name": "Notebook", "price": 200, "category": "Books", "brand": "Classmate", "image": "images/Notebooks.jpg" },
+  { "id": 23, "name": "Magazine", "price": 300, "category": "Books", "brand": "Outlook", "image": "images/Mag.jpg" },
   { "id": 24, "name": "Comics", "price": 400, "category": "Books", "brand": "Marvel", "image": "images/comics.jpg" },
   { "id": 25, "name": "Dictionary", "price": 1000, "category": "Books", "brand": "Oxford", "image": "images/dictionary.jpg" }
 ]
