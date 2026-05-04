@@ -22,12 +22,10 @@ interface Products {
 export class Home implements OnInit {
 
   productslist: Products[] = [];
-
   constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
     const local = localStorage.getItem('products');
-
     if (local) {
       this.productslist = JSON.parse(local);
     } else {
@@ -57,10 +55,4 @@ export class Home implements OnInit {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
-
-  // goToCategory(category: string) {
-  //   this.router.navigate(['/view'], {
-  //     queryParams: { category: category }
-  //   });
-  // }
 }

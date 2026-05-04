@@ -1,7 +1,4 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f6fa;
-}
+
 
 h2 {
   text-align: center;
@@ -18,7 +15,7 @@ button {
   transition: 0.3s;
 }
 
-/* Add User button */
+
 button:first-of-type {
   background: #007bff;
   color: white;
@@ -28,7 +25,7 @@ button:first-of-type:hover {
   background: #0056b3;
 }
 
-/* Table styling */
+
 table {
   width: 95%;
   margin: auto;
@@ -57,7 +54,7 @@ tr:hover {
   background: #f1f1f1;
 }
 
-/* Edit/Delete buttons */
+
 td button {
   padding: 6px 10px;
   border-radius: 5px;
@@ -82,7 +79,7 @@ td button:last-child:hover {
   background: #a71d2a;
 }
 
-/* Modal background */
+
 .modal {
   position: fixed;
   top: 0;

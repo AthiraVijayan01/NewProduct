@@ -1,0 +1,112 @@
+.container {
+  padding: 25px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #374151;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 50px;
+  color: #9ca3af;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+thead {
+  background: #6366f1;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* IMAGE */
+td img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* STOCK */
+.stock {
+  font-weight: bold;
+}
+
+/* STATUS */
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.status.out {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.status.low {
+  background: #fde68a;
+  color: #92400e;
+}
+
+.status.ok {
+  background: #bbf7d0;
+  color: #065f46;
+}
+
+.status:hover {
+  transform: scale(1.05);
+}
+
+/* INPUT */
+input {
+  width: 70px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 5px;
+}
+
+/* BUTTON */
+button {
+  display: block;
+  width: 80px;
+  margin: auto;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background: #6366f1;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #4f46e5;
+}

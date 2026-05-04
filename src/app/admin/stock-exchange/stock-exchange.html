@@ -1,0 +1,60 @@
+<div class="container">
+
+  <h2>Stock Management</h2>
+
+  <table *ngIf="products.length > 0">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Stock</th>
+        <th>Status</th>
+        <th>Update Stock</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of products">
+
+        <td>
+          <img *ngIf="p.image" [src]="p.image">
+        </td>
+
+        <td>{{ p.name }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.brand }}</td>
+
+        <td class="stock">{{ p.stock }}</td>
+
+        <td>
+          <span 
+            class="status"
+            [ngClass]="{
+              'out': p.stock === 0,
+              'low': p.stock > 0 && p.stock <= 5,
+              'ok': p.stock > 5
+            }">
+            {{ getStockStatus(p.stock) }}
+          </span>
+        </td>
+
+        <td>
+          <input 
+            type="number"
+            [(ngModel)]="editStockMap[p.id]"
+            placeholder="Qty">
+
+          <button (click)="updateStock(p)">Update</button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="products.length === 0" class="empty">
+    No products available
+  </div>
+
+</div>

@@ -1,10 +1,34 @@
 <div class="dashboard">
+
   <h1>Admin Dashboard</h1>
 
   <div class="cards">
-    <div class="card">Products: {{ totalProducts }}</div>
-    <div class="card">Orders: {{ totalOrders }}</div>
-    <div class="card">Users: {{ totalUsers }}</div>
-    <div class="card">Revenue: ₹{{ totalRevenue }}</div>
+
+    <div class="card">
+      <h2>{{ totalProducts }}</h2>
+      <p>Total Products</p>
+    </div>
+
+    <div class="card">
+      <h2>{{ totalOrders }}</h2>
+      <p>Total Orders</p>
+    </div>
+
+    <div class="card">
+      <h2>{{ totalUsers }}</h2>
+      <p>Total Users</p>
+    </div>
+
+    <div class="card">
+      <h2>₹{{ totalRevenue }}</h2>
+      <p>Total Revenue</p>
+    </div>
+
+    <div class="card warning" *ngIf="lowStockCount > 0">
+      <h2>{{ lowStockCount }}</h2>
+      <p>Low Stock Items</p>
+    </div>
+
   </div>
+
 </div>

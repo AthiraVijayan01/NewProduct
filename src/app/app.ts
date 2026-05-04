@@ -14,6 +14,9 @@ import { ForgotPassword } from './user/forgotpassword/forgotpassword';
 import { Dashboard } from './admin/dashboard/dashboard';
 import { ProductManagement } from './admin/product-management/product-management';
 import { UserManagement } from './admin/user-management/user-management';
+import { Wishlist } from './admin/wishlist/wishlist';
+import { OrderHistory } from './admin/order-history/order-history';
+import { StockExchange } from './admin/stock-exchange/stock-exchange';
 
 
 @Component({

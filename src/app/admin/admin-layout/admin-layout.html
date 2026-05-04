@@ -1,1 +1,18 @@
-<p>admin-layout works!</p>
+<div class="layout">
+  <div class="sidebar">
+    <h2>Admin</h2>
+
+    <button routerLink="/admin/dashboard">Dashboard</button>
+    <button routerLink="/admin/products">Products</button>
+    <button routerLink="/admin/users">Users</button>
+    <button routerLink="/admin/orders">Orders</button>
+    <button routerLink="/admin/stock">Stock History</button>
+    <button routerLink="/admin/wishlist">Wishlist</button>
+
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

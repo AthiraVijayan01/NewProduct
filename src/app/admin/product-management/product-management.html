@@ -11,7 +11,13 @@
 
       <h3>{{ p.name }}</h3>
       <p>{{ p.category }}</p>
+      <p>{{ p.brand }}</p>
+
       <p class="price">₹{{ p.price }}</p>
+
+      <p class="stock" [class.low]="p.stock <= 3">
+        {{ p.stock <= 3 ? 'Low Stock (' + p.stock + ')' : 'Stock: ' + p.stock }}
+      </p>
 
       <div class="btn-group">
         <button class="edit-btn" (click)="editProduct(p)">Edit</button>
@@ -24,7 +30,6 @@
 </div>
 
 <div class="backdrop" *ngIf="showModal" (click)="closeModal()">
-
   <div class="modal" (click)="$event.stopPropagation()">
 
     <h2>{{ isEdit ? 'Update Product' : 'Add Product' }}</h2>
@@ -32,6 +37,8 @@
     <input [(ngModel)]="name" placeholder="Product Name">
     <input [(ngModel)]="price" type="number" placeholder="Price">
     <input [(ngModel)]="category" placeholder="Category">
+    <input [(ngModel)]="brand" placeholder="Brand">
+    <input [(ngModel)]="stock" type="number" placeholder="Stock">
 
     <input type="file" (change)="onFileSelected($event)">
 
@@ -45,5 +52,4 @@
     </div>
 
   </div>
-
 </div>

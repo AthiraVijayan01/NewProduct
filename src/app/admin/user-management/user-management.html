@@ -22,12 +22,9 @@
     </td>
   </tr>
 </table>
-
 <div class="modal" *ngIf="showModal">
   <div class="modal-content">
-
     <h3>{{ isEdit ? 'Edit User' : 'Add User' }}</h3>
-
     <input [(ngModel)]="user.username" placeholder="Username">
     <input [(ngModel)]="user.name" placeholder="Name">
 
@@ -36,12 +33,10 @@
       <option value="user">User</option>
       <option value="admin">Admin</option>
     </select>
-
     <div class="btn-group">
       <button (click)="saveUser()">
         {{ isEdit ? 'Update' : 'Save' }}
       </button>
-
       <button (click)="closeModal()">Cancel</button>
     </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,15 +8,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']
 })
-export class Dashboard implements OnInit {
+export class Dashboard implements OnInit, DoCheck {
 
   totalProducts = 0;
   totalOrders = 0;
   totalUsers = 0;
   totalRevenue = 0;
+  lowStockCount = 0;
 
   ngOnInit() {
-    console.log("Dashboard loaded");
+    this.loadDashboardData();
+  }
+
+  ngDoCheck() {
     this.loadDashboardData();
   }
 
@@ -30,7 +34,9 @@ export class Dashboard implements OnInit {
     this.totalUsers = users.length;
 
     this.totalRevenue = orders.reduce((sum: number, order: any) => {
-      return sum + (order.totalAmount || 0);
+      return sum + (order.grandTotal || 0);
     }, 0);
+
+    this.lowStockCount = products.filter((p: any) => p.stock <= 5).length;
   }
 }

@@ -1,49 +1,46 @@
-<div class="y">
-  <button (click)="logout()">Log out</button>
-  <h2>Your Cart</h2>
-  
-  
-</div >
-<div class="address-box">
-  <h3>Delivery Address</h3>
-  <p><strong>{{ user.name }}</strong></p>
-  <p>{{ user.address }},{{ user.place }}, {{ user.district }},{{ user.phone }}</p>
-</div>
-<div class="cart-container">
-  <div class="cart-box">
-    <div *ngFor="let category of categories">
-      <h3 class="category">{{ category }}</h3>
-      <div class="item" *ngFor="let item of groupedCart[category]">
-        <img *ngIf="item.image" [src]="item.image" alt="product">
-        <div class="details">
-          <h4>{{ item.name }}</h4>
-          <p>Price: ₹{{ item.price }}</p>
-          <p class="discount">Discount: {{ getDiscount(item) }}%</p>
-          <p>Discount Amount: ₹{{ getDiscountAmount(item) }}</p>
-          <p>Price After Discount: ₹{{ getPriceAfterDiscount(item) }}</p>
-          <p>Quantity: {{ item.quantity }}</p>
-          <p class="total">Total: ₹{{ getItemTotal(item) }}</p>
-          <div class="buttons">
-            <button (click)="increase(item)">+</button>
-            <button (click)="decrease(item)">-</button>
-            <button (click)="remove(item.id)">Remove</button>
+<div class="page">
+  <div class="header">
+    <button class="back" (click)="logout()">Logout</button>
+    <h2>Your Cart</h2>
+  </div>
+  <div class="address-box">
+    <h3>Delivery Address</h3>
+    <p><strong>{{ user.name }}</strong></p>
+    <p>{{ user.address }}, {{ user.place }}, {{ user.district }}, {{ user.phone }}</p>
+  </div>
+  <div class="cart-container">
+    <div class="cart-box">
+      <div *ngFor="let category of categories">
+        <h3 class="category">{{ category }}</h3>
+        <div class="item" *ngFor="let item of groupedCart[category]">
+          <img [src]="item.image">
+          <div class="details">
+            <h4>{{ item.name }}</h4>
+            <p>Price: ₹{{ item.price }}</p>
+            <p class="discount">Discount: {{ getDiscount(item) }}%</p>
+            <p>After Discount: ₹{{ getPriceAfterDiscount(item) }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p class="total">Total: ₹{{ getItemTotal(item) }}</p>
+            <div class="buttons">
+              <button (click)="increase(item)">+</button>
+              <button (click)="decrease(item)">-</button>
+              <button class="remove" (click)="remove(item.id)">Remove</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <hr>
-    <div class="summary">
-      <p><strong>Total Discount:</strong> ₹{{ getTotalDiscount() }}</p>
-      <p class="final"><strong>Final Amount:</strong> ₹{{ getSubtotal() }}</p>
-      <button (click)="goBack()">Continue Shopping</button>
-      <button (click)="gotoPayment()">Proceed to Payment</button>
+      <div class="summary">
+        <p><strong>Total Discount:</strong> ₹{{ getTotalDiscount() }}</p>
+        <p class="final"><strong>Final Amount:</strong> ₹{{ getSubtotal() }}</p>
+        <div class="summary-actions">
+          <button (click)="goBack()">Continue Shopping</button>
+          <button class="pay" (click)="gotoPayment()">Proceed to Payment</button>
+        </div>
+      </div>
     </div>
   </div>
-  
-<div class="footer-menu">
-  <div>
-    <button class="btn1" (click)="goTohome()">Home</button>
+  <div class="footer">
+    <button (click)="goTohome()">Home</button>
+    <button (click)="goBack()">Shop</button>
   </div>
 </div>
-
-  

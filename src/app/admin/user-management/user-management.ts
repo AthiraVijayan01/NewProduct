@@ -51,14 +51,11 @@ export class UserManagement implements OnInit {
     this.isEdit = false;
     this.showModal = true;
   }
-
   closeModal(): void {
     this.showModal = false;
   }
-
   saveUser(): void {
     let users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
-
     if (this.isEdit) {
       users = users.map(u =>
         u.id === this.user.id ? this.user : u

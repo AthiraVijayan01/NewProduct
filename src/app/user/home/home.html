@@ -1,34 +1,33 @@
-
-<div class="header">
-  <div class="logo">Shopiee</div>
-
-  <input type="text" placeholder="Search for Products..." class="search">
-
-  <div class="nav-links">
-    <button (click)="logout()">Log out</button>
+<div class="layout">
+  <div class="sidebar">
+    <h2>Shopiee</h2>
+    <button (click)="goToView()">Products</button>
+    <button (click)="goToCart()">Cart</button>
+    <button (click)="goToProfile()">Profile</button>
+    <button class="logout" (click)="logout()">Logout</button>
   </div>
-</div>
-
-<!-- 
-<div class="menu">
-  <div (click)="goToCategory('Electronics')">Electronics</div>
-  <div (click)="goToCategory('Clothing')">Clothing</div>
-  <div (click)="goToCategory('Furniture')">Furniture</div>
-  <div (click)="goToCategory('Groceries')">Groceries</div>
-  <div (click)="goToCategory('Books')">Books</div>
-</div> -->
-<!-- 
-<div class="promo-container">
-  <div *ngFor="let p of productslist" class="promo">>
-    <h3>{{ p.name }}</h3>
-    <p class="category">{{ p.category }}</p>
-    <p class="price">₹{{ p.price }}</p>
+  <div class="content">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Welcome</h1>
+        <p>Explore products and manage your shopping easily.</p>
+        <button class="shop-btn" (click)="goToView()">Shop Now</button>
+      </div>
+      <div class="hero-image">
+        <img src="images\logo.png">
+      </div>
+    </div>
+    <h2 class="title">Products</h2>
+    <div class="grid">
+      <div class="card" *ngFor="let p of productslist">
+        <img [src]="p.image || 'assets/default.png'">
+        <h3>{{ p.name }}</h3>
+        <p class="category">{{ p.category }}</p>
+        <div class="bottom">
+          <span>₹{{ p.price }}</span>
+          <button (click)="goToView()">View</button>
+        </div>
+      </div>
+    </div>
   </div>
-</div> -->
-
-
-<div class="footer-menu">
-  <button class="btn1" (click)="goToCart()">Cart</button>
-  <button class="btn1" (click)="goToView()">View Products</button>
-  <button class="btn1" (click)="goToProfile()">Profile</button>
 </div>

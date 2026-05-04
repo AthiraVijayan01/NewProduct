@@ -11,11 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.css'],
 })
 export class Login implements OnInit {
-
   loginForm!: FormGroup;
-
   constructor(private fb: FormBuilder, private router: Router) {}
-
   ngOnInit() {
 
     this.loginForm = this.fb.group({

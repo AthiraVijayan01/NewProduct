@@ -7,6 +7,8 @@ interface Product {
   name: string;
   price: number;
   category: string;
+  brand: string;
+  stock: number;
   image: string;
 }
 
@@ -21,10 +23,12 @@ export class ProductManagement implements OnInit {
 
   products: Product[] = [];
 
-  name: string = '';
+  name = '';
   price: number | null = null;
-  category: string = '';
-  image: string = '';
+  category = '';
+  brand = '';
+  stock: number | null = null;
+  image = '';
 
   showModal = false;
   isEdit = false;
@@ -53,6 +57,8 @@ export class ProductManagement implements OnInit {
     this.name = '';
     this.price = null;
     this.category = '';
+    this.brand = '';
+    this.stock = null;
     this.image = '';
     this.isEdit = false;
     this.editId = null;
@@ -66,6 +72,8 @@ export class ProductManagement implements OnInit {
     this.name = p.name;
     this.price = p.price;
     this.category = p.category;
+    this.brand = p.brand;
+    this.stock = p.stock;
     this.image = p.image;
   }
 
@@ -82,7 +90,6 @@ export class ProductManagement implements OnInit {
 
     img.onload = () => {
       const canvas = document.createElement('canvas');
-
       const MAX_WIDTH = 300;
       const scale = MAX_WIDTH / img.width;
 
@@ -93,7 +100,6 @@ export class ProductManagement implements OnInit {
       if (!ctx) return;
 
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
       this.image = canvas.toDataURL('image/jpeg', 0.7);
     };
 
@@ -101,7 +107,7 @@ export class ProductManagement implements OnInit {
   }
 
   saveProduct(): void {
-    if (!this.name || !this.price || !this.category) return;
+    if (!this.name || !this.price || !this.category || !this.brand || !this.stock) return;
 
     let products: Product[] = JSON.parse(localStorage.getItem('products') || '[]');
 
@@ -113,6 +119,8 @@ export class ProductManagement implements OnInit {
               name: this.name,
               price: this.price!,
               category: this.category,
+              brand: this.brand,
+              stock: this.stock!,
               image: this.image
             }
           : p
@@ -123,12 +131,13 @@ export class ProductManagement implements OnInit {
         name: this.name,
         price: this.price!,
         category: this.category,
+        brand: this.brand,
+        stock: this.stock!,
         image: this.image
       });
     }
 
     localStorage.setItem('products', JSON.stringify(products));
-
     this.loadProducts();
     this.closeModal();
   }
@@ -137,7 +146,6 @@ export class ProductManagement implements OnInit {
     let products: Product[] = JSON.parse(localStorage.getItem('products') || '[]');
     products = products.filter(p => p.id !== id);
     localStorage.setItem('products', JSON.stringify(products));
-
     this.loadProducts();
   }
 }

@@ -1,0 +1,94 @@
+.container {
+  padding: 25px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  gap: 10px;
+}
+
+input, select {
+  padding: 8px;
+  width: 48%;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  margin-top: 30px;
+}
+
+.wishlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.wishlist-table th {
+  background: #2874f0;
+  color: white;
+  padding: 12px;
+}
+
+.wishlist-table td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.price {
+  color: green;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.remove {
+  background: #e74c3c;
+  color: white;
+}
+
+.move {
+  background: #3498db;
+  color: white;
+}
+
+.clear {
+  background: #555;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 15px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}

@@ -14,6 +14,10 @@ import { ProductManagement } from './admin/product-management/product-management
 import { UserManagement } from './admin/user-management/user-management';
 import { AdminLayout } from './admin/admin-layout/admin-layout';
 
+import { OrderHistory } from './admin/order-history/order-history';
+import { StockExchange } from './admin/stock-exchange/stock-exchange';
+import { Wishlist } from './admin/wishlist/wishlist';
+
 export const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -35,7 +39,10 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: Dashboard },
       { path: 'products', component: ProductManagement },
-      { path: 'users', component: UserManagement }
+      { path: 'users', component: UserManagement },
+      { path: 'orders', component: OrderHistory },
+      { path: 'stock', component: StockExchange },
+      { path: 'wishlist', component: Wishlist }
     ]
   },
 

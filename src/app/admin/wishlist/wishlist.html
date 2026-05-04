@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Wishlist</h2>
+  <div *ngIf="wishlist.length === 0" class="empty">
+    No items in wishlist
+  </div>
+  <table *ngIf="wishlist.length > 0" class="wishlist-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of wishlist">
+        <td>
+          <img *ngIf="p.image" [src]="p.image" class="product-img">
+        </td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.category }}</td>
+        <td class="price">₹{{ p.price }}</td>
+        <td>
+          <button class="remove" (click)="removeItem(p.id)">
+            Remove
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button *ngIf="wishlist.length > 0" class="clear" (click)="clearWishlist()">
+    Clear Wishlist
+  </button>
+</div>

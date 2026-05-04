@@ -17,7 +17,6 @@ interface CartItem {
   templateUrl: './payment.html',
   styleUrls: ['./payment.css']
 })
-
 export class Payment implements OnInit {
 
   cart: CartItem[] = [];
@@ -38,7 +37,6 @@ export class Payment implements OnInit {
     this.calculateTotal();
   }
 
-  
   getDiscount(item: CartItem): number {
     let discount = 0;
 
@@ -68,38 +66,82 @@ export class Payment implements OnInit {
 
     if (item.price > 50000) discount += 5;
     if (item.price < 1000) discount += 2;
+
     return Math.min(discount, 30);
   }
 
   calculateTotal() {
-  const result = this.cart.reduce(
-    (acc, item) => {
-      const itemTotal = item.price * item.quantity;
-      const discountPercent = this.getDiscount(item);
-      const discountAmount = (item.price * discountPercent) / 100;
-      acc.total += itemTotal;
-      acc.discount += discountAmount * item.quantity;
-      return acc;
-    },
-    { total: 0, discount: 0 }
-  );
-  this.total = Number(result.total.toFixed(2));
-  this.discount = Number(result.discount.toFixed(2));
-  this.grandTotal = Number((this.total - this.discount).toFixed(2));
-}
+    const result = this.cart.reduce(
+      (acc, item) => {
+        const itemTotal = item.price * item.quantity;
+        const discountPercent = this.getDiscount(item);
+        const discountAmount = (item.price * discountPercent) / 100;
+
+        acc.total += itemTotal;
+        acc.discount += discountAmount * item.quantity;
+
+        return acc;
+      },
+      { total: 0, discount: 0 }
+    );
+
+    this.total = Number(result.total.toFixed(2));
+    this.discount = Number(result.discount.toFixed(2));
+    this.grandTotal = Number((this.total - this.discount).toFixed(2));
+  }
+
   confirmPayment() {
     if (this.cart.length === 0) {
-      alert('Your cart is empty!');
+      alert('Your cart is empty');
       return;
     }
 
-alert(`Payment Successful!
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+    const newOrder = {
+      user: user,
+      items: this.cart,
+      total: this.total,
+      discount: this.discount,
+      grandTotal: this.grandTotal,
+      date: new Date()
+    };
+
+    orders.push(newOrder);
+    localStorage.setItem('orders', JSON.stringify(orders));
+
+    this.updateStockAfterOrder();
+
+    alert(`Payment Successful!
 Total: ₹${this.total}
 Discount: ₹${this.discount}
 Grand Total: ₹${this.grandTotal}`);
+
     localStorage.removeItem('cart');
     this.router.navigate(['/home']);
   }
+
+  updateStockAfterOrder() {
+    let products = JSON.parse(localStorage.getItem('products') || '[]');
+
+    this.cart.forEach(cartItem => {
+      products = products.map((p: any) => {
+        if (p.id === cartItem.id) {
+          const updatedStock = (p.stock || 0) - cartItem.quantity;
+
+          return {
+            ...p,
+            stock: updatedStock < 0 ? 0 : updatedStock
+          };
+        }
+        return p;
+      });
+    });
+
+    localStorage.setItem('products', JSON.stringify(products));
+  }
+
   goBack() {
     this.router.navigate(['/cart']);
   }

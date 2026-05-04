@@ -1,0 +1,60 @@
+<div class="container">
+
+  <h2>Order History</h2>
+
+  <div *ngIf="orders.length === 0" class="empty">
+    No orders available
+  </div>
+
+  <div *ngFor="let order of orders; let i = index" class="order-card">
+
+    <div class="top">
+      <div>
+        <p><strong>User:</strong> {{ order.user?.name }}</p>
+        <p><strong>Phone:</strong> {{ order.user?.phone }}</p>
+      </div>
+
+      <div>
+        <p><strong>Date:</strong> {{ order.date | date:'short' }}</p>
+        <p><strong>Items:</strong> {{ getTotalItems(order) }}</p>
+      </div>
+    </div>
+
+    <div class="address">
+      {{ order.user?.address }}, {{ order.user?.place }}, {{ order.user?.district }}
+    </div>
+
+    <div class="status">
+      Status: 
+      <span [ngClass]="order.status || 'pending'">
+        {{ order.status || 'Pending' }}
+      </span>
+    </div>
+
+    <div class="items">
+      <div *ngFor="let item of order.items" class="item">
+        <span>{{ item.name }}</span>
+        <span>x{{ item.quantity }}</span>
+        <span>₹{{ item.price }}</span>
+      </div>
+    </div>
+
+    <div class="summary">
+      <p>Total: ₹{{ order.total }}</p>
+      <p>Discount: ₹{{ order.discount }}</p>
+      <p class="grand">Grand Total: ₹{{ order.grandTotal }}</p>
+    </div>
+
+    <div class="actions">
+      <button (click)="updateStatus(i, 'Out for Delivery')">Out for Delivery</button>
+      <button (click)="updateStatus(i, 'Delivered')">Delivered</button>
+      <button class="delete" (click)="deleteOrder(i)">Delete</button>
+    </div>
+
+  </div>
+
+  <button *ngIf="orders.length > 0" class="clear" (click)="clearAllOrders()">
+    Clear All Orders
+  </button>
+
+</div>

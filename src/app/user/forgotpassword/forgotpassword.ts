@@ -16,7 +16,6 @@ export class ForgotPassword {
       email: ['', [Validators.required, Validators.email]]
     });
   }
-  
   sendResetLink() {
     if (this.forgotForm.invalid) {
       alert('Please enter a valid email');
